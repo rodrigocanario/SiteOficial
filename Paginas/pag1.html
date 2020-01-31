@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Orçamento</title>
+    </head>
+    <body>
+        <h1>Orçamento: (1 of 6)</h1>
+        <form id="pergunta">
+        <label>
+            Qual sua cidade?<br>
+            <select id="Answer">
+            <option value="Porto alegre"> Porto</option>
+            <option value="Rio de Janeiro">Rio</option>
+            <option value="Outros">Outros</option>
+            </select>       
+        <button id="button1">Submit!</button>
+    </label>
+        </form>
+        <div id="resposta"></div>
+        <script src="/Users/admin/Desktop/Sitee/node_modules/jquery/dist/jquery.slim.js"></script>
+        <script>
+            var info = {
+                nome:"",
+                email:"",
+                cidade: "",
+                tipo: "",
+                type: "",
+                preco:"",
+                ambientes:" ",
+                servico:" ",
+            };
+        $("#button1").on("click",function(){
+            event.preventDefault();
+            console.log("you clicked me!")
+            var answer= $("#Answer").val()
+            console.log(answer)
+            //$("#resposta").text("Voce escolheu " + answer)
+            if (answer === "Outros"){
+            var Info = JSON.stringify(info)
+            localStorage.setItem('Info', Info);
+            window.location.assign("pag2.html");
+            }else{
+            info.cidade=answer 
+            var Info = JSON.stringify(info)
+            localStorage.setItem('Info', Info);
+            console.log(info)
+            window.location.assign("pag7.html")
+
+        }})
+        </script>
+    </body>
+</html>

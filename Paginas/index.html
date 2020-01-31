@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pag2(online)</title>
+    </head>
+    <body>
+        <h1>Faça seu orçamento aqui!</h1>
+        </form>
+        <div id="resposta"></div>
+        <br>
+        <br>
+        <button id="button1">Fazer Orçamento!</button>
+        <script src="/Users/admin/Desktop/Sitee/node_modules/jquery/dist/jquery.slim.js"></script>
+        <script>
+        var Info= localStorage.getItem('Info')
+        var info= JSON.parse(Info)
+        $("#button1").on("click",function(){
+            window.location.assign("pag1.html");
+        
+        })
+        </script>
+    </body>
+</html>

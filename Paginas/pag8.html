@@ -1,0 +1,50 @@
+<head>
+    <title>Orçamento</title>
+</head>
+<body>
+    <h1>Orçamento: (3 of 6)</h1>
+    <form id="pergunta">
+    <label>
+        Qual seria seu interesse?<br>
+        <select id="Answer">
+            <option value="tec"> Projeto Técnico</option>
+            <option value="dec">Decoração</option>
+            <option value="cons">Consultoria</option>
+        </select>       
+    <button id="button1">Submit!</button>
+</label>
+    </form>
+    <div id="resposta"></div>
+    <script src="/Users/admin/Desktop/Sitee/node_modules/jquery/dist/jquery.slim.js"></script>
+    <script>
+    var Info= localStorage.getItem('Info')
+    var info= JSON.parse(Info)
+    $("#button1").on("click",function(){
+        event.preventDefault();
+        console.log("you clicked me!")
+        var answer= $("#Answer").val()
+        console.log(answer)
+        //$("#resposta").text("Voce escolheu " + answer)
+        if (answer === "tec"){
+        info.type="Técnico"
+        Info = JSON.stringify(info)
+        localStorage.setItem('Info', Info)
+        window.location.assign("pag4.html");
+        }
+        if (answer=== "dec")
+        { 
+        info.type="Decoracao"
+        Info = JSON.stringify(info)
+        localStorage.setItem('Info', Info)
+        window.location.assign("pag10.html")}
+        if (answer=== "cons")
+        { 
+        info.type="Consultoria"
+        Info = JSON.stringify(info)
+        localStorage.setItem('Info', Info)
+        window.location.assign("pag9.html")}
+
+    })
+    </script>
+</body>
+</html>

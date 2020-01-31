@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pag2(online)</title>
+    </head>
+    <body>
+        <h1>Orçamento: (2 of 6)</h1>
+        <form id="pergunta">
+        <label>
+            Qual o nome de sua cidade?<br>
+            <input id="Answer">
+        <button id="button1">Submit!</button>
+    </label>
+        </form>
+        <div id="resposta"></div>
+        <script src="/Users/admin/Desktop/Sitee/node_modules/jquery/dist/jquery.slim.js"></script>
+        <script>
+        var Info= localStorage.getItem('Info')
+        var info= JSON.parse(Info)
+        console.log(info)
+        $("#button1").on("click",function(){
+            event.preventDefault();
+            console.log("you clicked me!")
+            var answer= $("#Answer").val()
+            console.log(answer)
+            info.cidade= answer
+            console.log(info)
+        Info = JSON.stringify(info)
+        localStorage.setItem('Info', Info)
+        window.location.assign("pag3.html");
+
+
+        })
+        </script>
+    </body>
+</html>

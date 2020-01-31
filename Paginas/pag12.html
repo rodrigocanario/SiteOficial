@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pag2(online)</title>
+    </head>
+    <body>
+        <h1>Orçamento: (6 of 6)</h1>
+        <form id="pergunta">
+        <label>
+            Insira seu nome e seu email para contato:<br>
+            nome<input id="Answer1"><br>
+            email<input type="email" id="Answer2"><br>
+        <button id="button1">Submit!</button>
+    </label>
+        </form>
+        <div id="resposta"></div>
+        <br>
+        <br>
+        <button id="button2">Voltar para o inicio</button>
+        <script src="/Users/admin/Desktop/Sitee/node_modules/jquery/dist/jquery.slim.js"></script>
+        <script>
+        var Info= localStorage.getItem('Info')
+        var info= JSON.parse(Info)
+        $("#button1").on("click",function(){
+            event.preventDefault();
+            var preco= parseInt(localStorage.getItem('Preco'))
+            console.log("you clicked me!")
+            var answer1= $("#Answer1").val()
+            console.log(answer1)
+            var answer2= $("#Answer2").val()
+            console.log(answer2)
+            info.nome=answer1
+            info.email=answer2
+
+                
+            
+
+            //window.location.assign("pag3.html");
+
+            console.log(info)
+            $("#resposta").text("Seu preco é de " + preco)
+        })
+        $("#button2").on("click",function(){
+            window.location.assign("index.html");
+        
+        })
+        </script>
+    </body>
+</html>

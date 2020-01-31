@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pag2(online)</title>
+    </head>
+    <body>
+        <h1>Orçamento: (4 of 6)</h1>
+        <form id="pergunta">
+        <label>
+            Insira quantos ambientes seriam<br>
+            <input type="number" id="Quarto">Quarto<br>
+            <input type="number" id="Sala">Sala<br>
+            <input type="number" id="Banheiro">Banheiro<br>
+            <input type="number" id="Cozinha">Cozinha<br>
+            <input type="number" id="Varanda">Varanda<br>
+            <input type="number" id="Comercial">Comercial<br>
+
+        <button id="button1">Submit!</button>
+
+    </label>
+        </form>
+        <div id="resposta"></div>
+        <script src="/Users/admin/Desktop/Sitee/node_modules/jquery/dist/jquery.slim.js"></script>
+        <script>
+        var Info= localStorage.getItem('Info')
+        var info= JSON.parse(Info)
+        $("#button1").on("click",function(){
+            event.preventDefault();
+            var preco =0
+            //console.log("you clicked me!")
+            
+            var answer1= $("#Quarto").val()
+            //console.log(answer1)
+            preco= answer1*1600
+            
+            var answer2= $("#Sala").val()
+            //console.log(answer2)
+            preco= preco + (answer2*1600)
+            
+            var answer3= $("#Banheiro").val()
+            //console.log(answer3)
+            preco= preco + (answer3*1000)
+            
+            var answer4= $("#Cozinha").val()
+            //console.log(answer4)
+            preco= preco + (answer4*1000)
+
+            var answer5= $("#Varanda").val()
+            //console.log(answer5)
+            preco= preco + (answer5*1000)
+
+            var answer6= $("#Comercial").val()
+            //console.log(answer6)
+            preco= preco + (answer6*1000)
+            //console.log(preco)
+            var check= $("[type=number]")
+            for(i=0; i<6; i++){
+                //console.log(check[i].checked)
+                if (check[i].value){
+                var answer= check[i].value
+                var nome=check[i].id
+                //console.log(answer)
+                info.ambientes= info.ambientes+nome+":"+(answer+" ")
+                console.log(info)
+                }
+                
+            }
+
+            localStorage.setItem('Preco', preco);
+            Info = JSON.stringify(info)
+            localStorage.setItem('Info', Info)
+            //$("#resposta").text("Voce escolheu " + answer)
+            window.location.assign("pag11.html");
+
+
+        })
+        </script>
+    </body>
+</html>

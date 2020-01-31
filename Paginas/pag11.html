@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pag2(online)</title>
+    </head>
+    <body>
+        <h1>Orçamento: (5 of 6)</h1>
+        <form id="pergunta">
+        <label>
+            Quais desses serviços voce deseja?<br>
+            <input type="checkbox" id="Answer1" value="3D">3D<br>
+            <input type="checkbox" id="Answer2" value="Layout"> Layout<br>
+            <input type="checkbox" id="Answer3" value="Iluminacao"> Iluminação<br>
+            <input type="checkbox" id="Answer4" value="Detalhamento"> Detalhamento<br>
+        <button id="button1">Submit!</button>
+    </label>
+        </form>
+        <script src="/Users/admin/Desktop/Sitee/node_modules/jquery/dist/jquery.slim.js"></script>
+        <script>
+        var Info= localStorage.getItem('Info')
+        var info= JSON.parse(Info)
+        $("#button1").on("click",function(){
+            var preco= parseInt(localStorage.getItem('Preco'))
+            event.preventDefault();
+            console.log("you clicked me!")
+            var check = $(":checkbox")
+            console.log(check)
+            for(i=0; i<4; i++){
+                //console.log(check[i].checked)
+                if (check[i].checked){
+                var answer= check[i].value
+                console.log(answer)
+                info.servico= info.servico+(answer+" ")
+                preco=preco+100
+                }
+                
+            }
+            info.preco= preco
+            console.log(preco)
+            Info = JSON.stringify(info)
+            localStorage.setItem('Info', Info)
+            localStorage.setItem('Preco', preco);
+            window.location.assign("pag12.html");
+
+            //$("#resposta").text("Seu preco é de " + preco)
+        })
+        </script>
+    </body>
+</html>

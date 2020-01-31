@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pag3(outros)</title>
+    </head>
+    <body>
+        <h1>Orçamento: (3 of 6)</h1>
+        <form id="pergunta">
+        <label>
+            Nós so possuímos seviços online para sua região.<br>
+            Qual desses lhe interessa?
+                <select id="Answer">
+                <option value="tec"> Projeto Técnico</option>
+                <option value="dec">Decoração</option>
+                <option value="cons">Consultoria</option>
+                </select>       
+            <button id="button1">Submit!</button>
+        </label>
+        </form>
+        <div id="resposta"></div>
+        <script src="/Users/admin/Desktop/Sitee/node_modules/jquery/dist/jquery.slim.js"></script>
+        <script>
+        var Info= localStorage.getItem('Info')
+        var info= JSON.parse(Info)
+        info.tipo= "online"
+        $("#button1").on("click",function(){
+            event.preventDefault();
+            console.log("you clicked me!")
+            var answer= $("#Answer").val()
+            console.log(answer)
+            //$("#resposta").text("Voce escolheu " + answer)
+            //window.location.assign("outro2.html");
+            if(answer === "tec"){
+                info.type="Projeto Tecnico"
+                Info=JSON.stringify(info)
+                localStorage.setItem("Info", Info)
+                console.log(info)
+                window.location.assign("pag4.html");
+            }
+            if(answer === "dec"){
+                info.type="Decoração"
+                Info=JSON.stringify(info)
+                localStorage.setItem("Info", Info)
+                window.location.assign("pag5.html");
+            }
+            if(answer === "cons"){
+                info.type="Consultoria"
+                Info=JSON.stringify(info)
+                localStorage.setItem("Info", Info)
+                window.location.assign("pag6.html");
+            }
+        })
+        </script>
+    </body>
+</html>

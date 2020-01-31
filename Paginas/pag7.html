@@ -1,0 +1,41 @@
+<head>
+    <title>Orçamento</title>
+</head>
+<body>
+    <h1>Orçamento: (2 of 6)</h1>
+    <form id="pergunta">
+    <label>
+        Possuimos serviços online e presencial na sua cidade. Qual tu prefere?<br>
+        <select id="Answer">
+        <option value="pre"> Presencial</option>
+        <option value="onl">Online</option>
+        </select>       
+    <button id="button1">Submit!</button>
+</label>
+    </form>
+    <div id="resposta"></div>
+    <script src="/Users/admin/Desktop/Sitee/node_modules/jquery/dist/jquery.slim.js"></script>
+    <script>
+        var Info= localStorage.getItem('Info')
+        var info= JSON.parse(Info)
+    $("#button1").on("click",function(){
+        event.preventDefault();
+        console.log("you clicked me!")
+        var answer= $("#Answer").val()
+        console.log(answer)
+        //$("#resposta").text("Voce escolheu " + answer)
+        if (answer === "onl"){
+        info.tipo="online"
+        Info = JSON.stringify(info)
+        localStorage.setItem('Info', Info)
+        window.location.assign("pag3.html");
+        }else{ 
+        info.tipo="presencial"
+        Info = JSON.stringify(info)
+        localStorage.setItem('Info', Info)
+        window.location.assign("pag8.html")}
+        
+    })
+    </script>
+</body>
+</html>

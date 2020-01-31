@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pag2(online)</title>
+    </head>
+    <body>
+        <h1>Orçamento: (4 of 6)</h1>
+        <form id="pergunta">
+        <label>
+            Quantos ambientes seriam?<br>
+            <input type="number" id="Answer">
+        <button id="button1">Submit!</button>
+    </label>
+        </form>
+        <div id="resposta"></div>
+        <script src="/Users/admin/Desktop/Sitee/node_modules/jquery/dist/jquery.slim.js"></script>
+        <script>
+        var Info= localStorage.getItem('Info')
+        var info= JSON.parse(Info)
+        $("#button1").on("click",function(){
+            event.preventDefault();
+            console.log("you clicked me!")
+            var answer= $("#Answer").val()
+            console.log(answer)
+            info.ambientes= answer
+            Info = JSON.stringify(info)
+            localStorage.setItem('Info', Info)
+            //$("#resposta").text("Voce escolheu " + answer)
+            window.location.assign("pag11.html");
+
+
+        })
+        </script>
+    </body>
+</html>
